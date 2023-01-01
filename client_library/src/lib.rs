@@ -1,7 +1,7 @@
 use mrauth::auth_proto::AuthorizationFailureResponse;
 use reqwest::Client;
+use reqwest_protobuf::{ProtobufRequestExt, ProtobufResponseExt};
 
-mod protobuf_ext;
 mod error;
 pub use error::*;
 use proto::GetAccessTokenResponse;
