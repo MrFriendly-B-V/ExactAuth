@@ -1,0 +1,20 @@
+[package]
+name = "client_library"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tracing = "0.1.37"
+prost = "0.11.5"
+thiserror = "1.0.38"
+async-trait = "0.1.60"
+
+[dependencies.mrauth]
+git = "ssh://git@github.com/MrFriendly-B-V/MrAuth.git"
+package = "client_library"
+
+[dependencies.reqwest]
+version = "0.11.13"
+
+[dependencies.proto]
+path = "../proto"

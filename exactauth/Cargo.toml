@@ -1,0 +1,42 @@
+[package]
+name = "exactauth"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4.2.1"
+actix-cors = "0.6.4"
+actix-multiresponse = "0.4.2"
+tracing-actix-web = "0.7.1"
+tracing = "0.1.37"
+thiserror = "1.0.38"
+serde_qs = "0.10.1"
+envy = "0.4.2"
+serde_json = "1.0.91"
+
+[dependencies.tokio]
+version = "1.23.0"
+features = ["rt", "rt-multi-thread", "time", "macros"]
+
+[dependencies.tracing-subscriber]
+version = "0.3.16"
+features = ["env-filter"]
+
+[dependencies.serde]
+version = "1.0.152"
+features = ["derive"]
+
+[dependencies.reqwest]
+version = "0.11.13"
+default-features = false
+features = ["rustls-tls", "json"]
+
+[dependencies.proto]
+path = "../proto"
+
+[dependencies.dal]
+path = "../dal"
+
+[dependencies.mrauth]
+git = "ssh://git@github.com/MrFriendly-B-V/MrAuth.git"
+package = "client_library"

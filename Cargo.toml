@@ -1,0 +1,7 @@
+[workspace]
+members = [
+	"dal",
+	"proto",
+	"exactauth",
+	"client_library"
+]

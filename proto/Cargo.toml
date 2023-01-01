@@ -1,0 +1,15 @@
+[package]
+name = "proto"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+prost = "0.11.5"
+typeshare = "1.0.0"
+
+[dependencies.serde]
+version = "1.0.152"
+features = ["derive"]
+
+[build-dependencies]
+prost-build = "0.11.5"

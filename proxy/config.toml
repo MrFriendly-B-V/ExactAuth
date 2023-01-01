@@ -1,0 +1,14 @@
+[net]
+port = 8443
+bind_address = '0.0.0.0'
+
+[proxy]
+error_server_header = 'Simpleproxy'
+
+[tls]
+pubkey = './mrf.local.pem'
+privkey = './mrf.local-key.pem'
+
+[[routes]]
+host = 'mrf.local'
+upstream = 'http://127.0.0.1:8081'
