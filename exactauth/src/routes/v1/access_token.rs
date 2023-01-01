@@ -5,7 +5,7 @@ use crate::{AuthData, MysqlData};
 use crate::error::{Error, WebResult};
 use proto::GetAccessTokenResponse;
 
-pub const SCOPE: &str = "nl.mrfriendly.exact.access_token";
+pub const SCOPE: &str = "nl.mrfriendly.exact.token";
 
 pub async fn access_token(mysql: MysqlData, auth: AuthData, bearer: BearerHeader) -> WebResult<Payload<GetAccessTokenResponse>> {
     let auth_user = mrauth::User::get_user(&auth, &bearer, SCOPE).await?;
