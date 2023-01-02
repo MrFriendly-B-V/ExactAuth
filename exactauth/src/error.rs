@@ -41,7 +41,8 @@ impl ResponseError for Error {
                 mrauth::Error::UnknownToken
                 | mrauth::Error::MissingScopes => StatusCode::FORBIDDEN,
                 mrauth::Error::ProtocolError(_)
-                | mrauth::Error::EncodeDecodeError(_) => StatusCode::INTERNAL_SERVER_ERROR,
+                | mrauth::Error::DecodeError(_)
+                | mrauth::Error::EncodeError(_) => StatusCode::INTERNAL_SERVER_ERROR,
             },
             Self::AuthError(e) => e.status_code(),
             Self::NotFound => StatusCode::NOT_FOUND,

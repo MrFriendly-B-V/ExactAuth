@@ -1,11 +1,10 @@
 use mrauth::auth_proto::AuthorizationFailureResponse;
 use reqwest::Client;
+use proto::GetAccessTokenResponse;
 use reqwest_protobuf::{ProtobufRequestExt, ProtobufResponseExt};
 
 mod error;
 pub use error::*;
-use proto::GetAccessTokenResponse;
-use crate::protobuf_ext::{ProtobufRequestExt, ProtobufResponseExt};
 
 #[derive(Clone)]
 pub struct ExactAuthClient {

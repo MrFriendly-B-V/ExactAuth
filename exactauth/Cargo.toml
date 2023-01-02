@@ -37,6 +37,9 @@ path = "../proto"
 [dependencies.dal]
 path = "../dal"
 
+[dependencies.noiseless-tracing-actix-web]
+git = "ssh://git@github.com/MrFriendly-B-V/noiseless-tracing-actix-web.git"
+
 [dependencies.mrauth]
 git = "ssh://git@github.com/MrFriendly-B-V/MrAuth.git"
 package = "client_library"

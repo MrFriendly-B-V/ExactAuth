@@ -1,4 +1,5 @@
 use mrauth::auth_proto::AuthorizationFailureResponse;
+use reqwest_protobuf::DecodeError;
 use thiserror::Error;
 
 #[derive(Debug, Error)]
@@ -13,11 +14,11 @@ pub enum Error {
     Auth(AuthorizationFailureResponse)
 }
 
-impl From<crate::protobuf_ext::DecodeError> for Error {
-    fn from(x:crate::protobuf_ext:: DecodeError) -> Self {
+impl From<DecodeError> for Error {
+    fn from(x: DecodeError) -> Self {
         match x {
-            crate::protobuf_ext::DecodeError::Reqwest(e) => Self::Reqwest(e),
-            crate::protobuf_ext::DecodeError::ProstDecode(e) => Self::ProstDecode(e),
+            DecodeError::Reqwest(e) => Self::Reqwest(e),
+            DecodeError::ProstDecode(e) => Self::ProstDecode(e),
         }
     }
 }
