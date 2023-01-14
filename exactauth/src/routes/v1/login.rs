@@ -24,7 +24,7 @@ struct OAuth2Query<'a> {
 }
 
 const EXACT_OAUTH2_LOGIN_URI: &str = "/api/oauth2/auth";
-const SCOPE: &str = "nl.mrfriendly.exact.login";
+const SCOPE: &str = "nl.mrfriendly.exact";
 
 #[instrument(skip(mysql, config, auth, query))]
 pub async fn login(mysql: MysqlData, config: ConfigData, auth: AuthData, query: web::Query<Query>) -> WebResult<Redirect> {

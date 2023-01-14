@@ -29,12 +29,12 @@ services:
       - "MYSQL_USER=runner"
       - "MYSQL_PASSWORD=runner"
       - "MYSQL_DB=runner"
-      - "EXACT_CLIENT_ID="
-      - "EXACT_CLIENT_SECRET="
-      - "REDIRECT_URI="
-      - "MRAUTH_URL="
+      - "EXACT_CLIENT_ID=bac401ab-7d4e-4cb6-92dd-8df388553c5b"
+      - "EXACT_CLIENT_SECRET=cCAPV7VhtNiF"
+      - "REDIRECT_URI=https://mrf.local:8443/api/v1/logged-in"
+      - "MRAUTH_URL=http://localhost:3444"
     ports:
-      - "3445:8080"
+      - "8081:8080"
 
 networks:
   runner:
