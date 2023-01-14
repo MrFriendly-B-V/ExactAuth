@@ -1,0 +1,41 @@
+version: '3'
+services:
+  database:
+    image: mariadb
+    networks:
+      - runner
+    environment:
+      - "MARIADB_ROOT_PASSWORD=123"
+      - "MARIADB_DATABASE=runner"
+      - "MARIADB_USER=runner"
+      - "MARIADB_PASSWORD=runner"
+    volumes:
+      - "./target/mariadb:/var/lib/mysql"
+
+  runner:
+    container_name: exactauth
+    restart: unless-stopped
+    build:
+      context: ./
+      ssh:
+        - "default"
+
+    networks:
+      - runner
+    depends_on:
+      - database
+    environment:
+      - "MYSQL_HOST=database"
+      - "MYSQL_USER=runner"
+      - "MYSQL_PASSWORD=runner"
+      - "MYSQL_DB=runner"
+      - "EXACT_CLIENT_ID="
+      - "EXACT_CLIENT_SECRET="
+      - "REDIRECT_URI="
+      - "MRAUTH_URL="
+    ports:
+      - "3445:8080"
+
+networks:
+  runner:
+    external: false
